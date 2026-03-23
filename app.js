@@ -214,7 +214,7 @@ async function addTodo(text) {
     await fetch(API, {
         method: "POST",
         headers: authHeaders(),
-        body: JSON.stringify({ text, done: false, user_id: session.user.id || session.user.sub }),
+        body: JSON.stringify({ text, done: false }),
     });
     await fetchTodos();
 }

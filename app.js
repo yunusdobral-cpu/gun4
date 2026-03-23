@@ -37,8 +37,8 @@ tabs.forEach((tab) => {
         tabs.forEach((t) => t.classList.remove("active"));
         tab.classList.add("active");
         const isLogin = tab.dataset.tab === "login";
-        loginForm.classList.toggle("hidden", !isLogin);
-        registerForm.classList.toggle("hidden", isLogin);
+        loginForm.style.display = isLogin ? "" : "none";
+        registerForm.style.display = isLogin ? "none" : "";
         hideMessage();
     });
 });
@@ -132,14 +132,14 @@ async function refreshSession(refreshToken) {
 }
 
 function showAuth() {
-    authSection.classList.remove("hidden");
-    appSection.classList.add("hidden");
+    authSection.style.display = "";
+    appSection.style.display = "none";
     hideMessage();
 }
 
 function showApp() {
-    authSection.classList.add("hidden");
-    appSection.classList.remove("hidden");
+    authSection.style.display = "none";
+    appSection.style.display = "";
     userEmail.textContent = session.user.email;
     fetchTodos();
 }
@@ -207,7 +207,7 @@ function render() {
 
     const remaining = todos.filter((t) => !t.done).length;
     countEl.textContent = `${remaining} g\u00f6rev kald\u0131`;
-    footer.classList.toggle("hidden", todos.length === 0);
+    footer.style.display = todos.length === 0 ? "none" : "";
 }
 
 async function addTodo(text) {

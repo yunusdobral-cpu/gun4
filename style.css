@@ -26,9 +26,6 @@ h1 {
 }
 
 /* Auth */
-.hidden {
-    display: none !important;
-}
 
 .auth-tabs {
     display: flex;
@@ -269,6 +266,10 @@ h1 {
 
 #footer.hidden {
     display: none;
+}
+
+.hidden {
+    display: none !important;
 }
 
 #clear-done {
